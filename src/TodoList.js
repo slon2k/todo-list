@@ -1,12 +1,18 @@
 import React from 'react'
 import TodoItem from './TodoItem'
 
+const TodoList = ({items, deleteItem}) => {
+    const todoItems = items.map((item) => {
+        return (
+           <TodoItem item = {item} deleteItem={deleteItem} />
+        )
+    })
 
-const TodoList = () => {
     return (
         <div>
-            <h3>Todo List</h3>
-            <TodoItem/>
+            <ol>
+                {todoItems}
+            </ol>
         </div>
     )
 }

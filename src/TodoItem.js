@@ -1,8 +1,11 @@
 import React from 'react'
 
-const TodoItem = () => {
+const TodoItem = ({item, deleteItem}) => {
     return (
-        <div><h4>Todo item</h4></div>
+        <li key={item.id}>
+            {item.id} - {item.description}
+            <button type={"button"} className={"btn btn-danger"} onClick={() => deleteItem(item.id)}>x</button>
+        </li>
     )
 }
 

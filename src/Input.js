@@ -1,9 +1,25 @@
 import React from 'react'
 
-const Input = (props) => {
-    return (
-        <div><h3>Input</h3></div>
-    )
-}
+export default class Input extends React.Component {
 
-export default Input
+    state = {
+        description: ''
+    }
+
+    render() {
+        const {addItem} = this.props;
+        const {description} = this.state
+        return (
+            <div>
+                <input type="text"
+                       name={'description'}
+                       value={description}
+                       onChange = {(event) => {this.setState({description: event.target.value})}}/>
+                <button type={"button"}
+                        onClick={()=>{addItem(description); this.setState({description: ''})}}
+                        className={"btn btn-default"}>
+                    Add
+                </button>
+            </div>)
+        }
+}
