@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './Header'
+import Input from './Input'
+import TodoList from './TodoList'
+import Filter from './Filter'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export default class App extends React.Component {
+
+    state = {
+        todoItems: [
+            {id: 1, description: "Do first", done: true},
+            {id: 2, description: "Do second", done: false},
+            {id: 3, description: "Do third", done: false},
+        ]
+    }
+
+    render() {
+        return (
+            <React.Fragment>
+                <Header name={"ToDo List"}/>
+                <main>
+                    <div className={'container'}>
+                        <Input/>
+                        <TodoList/>
+                        <Filter/>
+                    </div>
+                </main>
+            </React.Fragment>
+        );
+    }
 }
-
-export default App;
