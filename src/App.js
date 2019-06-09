@@ -33,7 +33,14 @@ export default class App extends React.Component {
         this.setState({filter: filter})
     }
 
-
+    toggleItemStatus = (id) => {
+        const {todoItems} = this.state;
+        const index = todoItems.findIndex((item) => item.id === id);
+        if (index > -1) {
+            todoItems[index].done = !todoItems[index].done;
+            this.setState({todoItems: todoItems});
+        }
+    }
 
     addItem = (description) => {
         const {todoItems, count} = this.state;
@@ -49,14 +56,16 @@ export default class App extends React.Component {
     }
 
     render() {
-        const {todoItems} = this.state;
         return (
             <React.Fragment>
                 <Header name={"ToDo List"}/>
                 <main>
                     <div className={'container'}>
                         <Input addItem={this.addItem}/>
-                        <TodoList items={this.filteredItems()} deleteItem={this.deleteItem}/>
+                        <TodoList items={this.filteredItems()}
+                                  deleteItem={this.deleteItem}
+                                  toggleItemStatus={this.toggleItemStatus}
+                        />
                         <Filter setFilter={this.setFilter}/>
                     </div>
                 </main>

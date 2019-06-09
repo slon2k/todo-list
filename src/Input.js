@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './Input.css'
+
 export default class Input extends React.Component {
 
     state = {
@@ -8,7 +10,7 @@ export default class Input extends React.Component {
 
     render() {
         const {addItem} = this.props;
-        const {description} = this.state
+        const {description} = this.state;
         const handleClick = () => {
             if(description !== ''){
                 addItem(description);

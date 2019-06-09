@@ -1,10 +1,13 @@
 import React from 'react'
 import TodoItem from './TodoItem'
 
-const TodoList = ({items, deleteItem}) => {
+const TodoList = ({items, deleteItem, toggleItemStatus}) => {
     const todoItems = items.map((item) => {
         return (
-           <TodoItem item = {item} deleteItem={deleteItem} />
+           <TodoItem key={item.id}
+                     item = {item}
+                     toggleItemStatus = {toggleItemStatus}
+                     deleteItem={deleteItem} />
         )
     })
 
