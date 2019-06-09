@@ -14,8 +14,26 @@ export default class App extends React.Component {
             {id: 2, description: "Do second", done: false},
             {id: 3, description: "Do third", done: false},
         ],
-        count: 4
+        count: 4,
+        filter: 'all'
     }
+
+    filteredItems() {
+        const {filter, todoItems} = this.state;
+        if (filter === 'done') {
+            return todoItems.filter((item) => item.done === true)
+        }
+        if (filter === 'active') {
+            return todoItems.filter((item) => item.done === false)
+        }
+        return todoItems;
+    }
+
+    setFilter = (filter) => {
+        this.setState({filter: filter})
+    }
+
+
 
     addItem = (description) => {
         const {todoItems, count} = this.state;
@@ -38,8 +56,8 @@ export default class App extends React.Component {
                 <main>
                     <div className={'container'}>
                         <Input addItem={this.addItem}/>
-                        <TodoList items={todoItems} deleteItem={this.deleteItem}/>
-                        <Filter/>
+                        <TodoList items={this.filteredItems()} deleteItem={this.deleteItem}/>
+                        <Filter setFilter={this.setFilter}/>
                     </div>
                 </main>
             </React.Fragment>

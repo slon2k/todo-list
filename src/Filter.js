@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Filter = () => {
+const Filter = ({setFilter}) => {
     return (
         <div>
-            <button type={"button"} className={"btn btn-primary"}>All</button>
-            <button type={"button"} className={"btn btn-default"}>Active</button>
-            <button type={"button"} className={"btn btn-default"}>Done</button>
+            <button onClick={() => setFilter('all')} type={"button"} className={"btn btn-primary"}>All</button>
+            <button onClick={() => setFilter('active')} type={"button"} className={"btn btn-default"}>Active</button>
+            <button onClick={() => setFilter('done')} type={"button"} className={"btn btn-default"}>Done</button>
         </div>
     )
 }
