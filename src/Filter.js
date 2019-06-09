@@ -1,12 +1,25 @@
 import React from 'react'
 
-const Filter = ({setFilter}) => {
+const Filter = ({setFilter, filter}) => {
+
+    const lineItem = (name, label) => {
+        return(
+            <li className="nav-item">
+                <div onClick={() => setFilter(name)}
+                     style={{cursor: "pointer"}}
+                     className={ filter===name ? "nav-link active" : "nav-link"}>
+                    {label}
+                </div>
+            </li>
+        )
+    }
+
     return (
-        <div className = "btn-group" >
-            <button onClick={() => setFilter('all')} type={"button"} className={"btn btn-primary"}>All</button>
-            <button onClick={() => setFilter('active')} type={"button"} className={"btn btn-default"}>Active</button>
-            <button onClick={() => setFilter('done')} type={"button"} className={"btn btn-default"}>Done</button>
-        </div>
+        <ul className = "nav nav-pills" >
+            {lineItem('all', "All")}
+            {lineItem('active', "Active")}
+            {lineItem('done', "Done")}
+        </ul>
     )
 }
 

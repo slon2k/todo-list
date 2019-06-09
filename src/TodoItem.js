@@ -11,7 +11,7 @@ const TodoItem = ({item, deleteItem, toggleItemStatus}) => {
                         onChange={() => toggleItemStatus(item.id)}/>
                 {item.description}
             </label>
-            <button type={"button"} className={"btn btn-danger btn-sm"} onClick={() => deleteItem(item.id)}>Delete</button>
+            <button type={"button"} className={"btn btn-outline-danger btn-sm"} onClick={() => deleteItem(item.id)}>Delete</button>
         </li>
     )
 }

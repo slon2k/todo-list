@@ -18,7 +18,7 @@ export default class Input extends React.Component {
             }
         }
         return (
-            <div>
+            <div className="add-item">
                 <input type="text"
                        name={'description'}
                        value={description}

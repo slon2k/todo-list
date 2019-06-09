@@ -66,7 +66,8 @@ export default class App extends React.Component {
                                   deleteItem={this.deleteItem}
                                   toggleItemStatus={this.toggleItemStatus}
                         />
-                        <Filter setFilter={this.setFilter}/>
+                        <Filter setFilter={this.setFilter}
+                                filter={this.state.filter}/>
                     </div>
                 </main>
             </React.Fragment>
